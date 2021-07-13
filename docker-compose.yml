@@ -1,0 +1,16 @@
+version: '2'
+services:
+  webserver:
+    image: nginx:alpine
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - nginx:/var/log/nginx
+    ports:
+            ## run the webserver on port 8080 ##
+      - "80:80"
+      - "443:433"
+volumes:
+  nginx:
+      external: true
+
